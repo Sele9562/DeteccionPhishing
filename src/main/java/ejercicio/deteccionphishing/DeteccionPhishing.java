@@ -107,7 +107,7 @@ public class DeteccionPhishing {
         for (Map.Entry<String, Integer> entry : keywordOccurrences.entrySet()) {
             if (!entry.getKey().equals("Total de puntos")) {
                 String line = entry.getKey() + ": " + entry.getValue() + " ocurrencias, " +
-                        "Total de puntos: " + entry.getValue() + "\n";
+                        "TOTAL DE PUNTOS: " + entry.getValue() + "\n";
                 appendToOutput(line);
             }
         }
