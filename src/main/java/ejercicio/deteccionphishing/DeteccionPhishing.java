@@ -100,4 +100,30 @@ public class DeteccionPhishing {
         return keywordOccurrences;
     }
 
+    private void printKeywordOccurrences(Map<String, Integer> keywordOccurrences) {
+        appendToOutput("Resultados del texto analizado");
+        appendToOutput("------------------------\n");
+
+        for (Map.Entry<String, Integer> entry : keywordOccurrences.entrySet()) {
+            if (!entry.getKey().equals("Total de puntos")) {
+                String line = entry.getKey() + ": " + entry.getValue() + " ocurrencias, " +
+                        "Total de puntos: " + entry.getValue() + "\n";
+                appendToOutput(line);
+            }
+        }
+
+        int totalPoints = keywordOccurrences.getOrDefault("Total de puntos", 0);
+        appendToOutput("****************************\n");
+        String totalLine = "Total de puntos: " + totalPoints + " ocurrencias, " +
+                "Total de puntos: " + totalPoints + "\n";
+        appendToOutput(totalLine);
+    }
+
+    private void appendToOutput(String text) {
+        outputTextArea.append(text);
+    }
+
+    private void showError(String message) {
+        JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
+    }
 }
